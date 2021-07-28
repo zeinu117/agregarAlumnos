@@ -40,20 +40,21 @@
             <td><?php echo $mostrar['especialidad']; ?></td>
             <td><?php echo $mostrar['sexo']; ?></td>
             <td>
-            <?php 
-                    $ext = $mostrar['extension'];
-                    $imagen = '';
-                    $ruta = "../archivos/".$idAlumno."/".$ext;
-                    if ($ext == "jpg" || $ext == "JPG") {
-                        $imagen = '<a href="mostrarFoto.php"><img src="'.$ruta.'" alt="" width="100px" height="70px"></a>';
-                    } else if ($ext == "jpeg" || $ext == "JPEG") {
-                        $imagen = '<a href="mostrarFoto.php"><img src="'.$ruta.'" alt="" width="100px" height="70px"></a>';
-                    }else if ($ext == "png" || $ext == "PNG") {
-                        $imagen = '<a href="mostrarFoto.php"><img src="'.$ruta.'" alt="" width="100px" height="70px"></a>';
-                    }
-
-                    echo $imagen;
-                ?>
+            <?php
+                $ext = $mostrar['extension'];
+                $imagen = '';
+                
+                if ($ext == "jpg" || $ext == "JPG") {
+                    $cadenaImagen = '<img src=' . 'archivos/' . $mostrar['nombre_archivo'] . ' width="50px" height="50px">';
+                    echo '<a href="mostrarFoto.php?nombre=' . $mostrar['nombre_archivo'] . '" target="_blank"> ' . $cadenaImagen . ' </a>';
+                } else if ($ext == "png" || $ext == "PNG") {
+                    $cadenaImagen = '<img src=' . 'archivos/' . $mostrar['nombre_archivo'] . ' width="50px" height="50px">';
+                    echo '<a href="mostrarFoto.php?nombre=' . $mostrar['nombre_archivo'] . '" target="_blank"> ' . $cadenaImagen . ' </a>';
+                }else if ($ext == "jpeg" || $ext == "JPEG") {
+                    $cadenaImagen = '<img src=' . 'archivos/' . $mostrar['nombre_archivo'] . ' width="50px" height="50px">';
+                    echo '<a href="mostrarFoto.php?nombre=' . $mostrar['nombre_archivo'] . '" target="_blank"> ' . $cadenaImagen . ' </a>';
+                }
+            ?>
             
             </td>
             <td>

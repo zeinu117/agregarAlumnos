@@ -1,15 +1,19 @@
-<?php  
-    include "servidor/conexion.php";
-    $conexion = conexion();
-    $sql = "SELECT * FROM t_alumnos";
-    $respuesta =  mysqli_query($conexion, $sql);
-    while($mostrar = mysqli_fetch_array($respuesta)) { 
-    $idAlumno = $mostrar['id_alumno'];
-    $ext = $mostrar['nombre_archivo'];
-    $imagen = '';
-    $ruta = "../archivos/".$ext;
-    $imagen = '<img src="'.$ruta.'" alt="" width="100%" height="100%">';
-    echo $imagen;
-    }
+<?php
 
+    $archivo = $_GET['nombre'];
+
+    $ruta =  "archivos/" . $archivo;
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esta es mi imagen completa</title>
+</head>
+<body>
+    <img src="<?php echo $ruta; ?>" alt="">
+</body>
+</html>
